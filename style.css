@@ -1,0 +1,18 @@
+.container {
+    width: 960px;
+    height: 960px;
+    display: flex;
+    flex-wrap: wrap;
+    border: 2px solid black;
+}
+
+.box {
+    background-color: #000;
+    height: 60px;
+    width: 60px;
+    transition: all 0.05s ease;
+}
+
+.box:hover {
+    background-color: #745050;
+}
