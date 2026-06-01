@@ -1,8 +1,16 @@
 const container = document.querySelector(".container");
 const resetBtn = document.querySelector(".reset");
-const boxes = document.querySelectorAll(".box");
-resetBtn.addEventListener("click", resetGrid);
+const clearBtn = document.querySelector(".clear");
 
+let isDrawing = false;
+
+document.addEventListener("mousedown", () => (isDrawing = true));
+document.addEventListener("mouseup", () => (isDrawing = false));
+
+resetBtn.addEventListener("click", resetGrid);
+clearBtn.addEventListener("click", () => {
+    createGrid(16);
+})
 createGrid(16);
 
 function createGrid(size) {
@@ -18,7 +26,9 @@ function createGrid(size) {
     box.style.height = `${boxSize}px`;
     box.classList.add("box");
     box.addEventListener("mouseover", () => {
-      box.style.backgroundColor = "white";
+      if (isDrawing) {
+        box.style.backgroundColor = "white";
+      }
     });
     container.appendChild(box);
   }
