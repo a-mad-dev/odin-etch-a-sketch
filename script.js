@@ -4,13 +4,17 @@ const clearBtn = document.querySelector(".clear");
 
 let isDrawing = false;
 
-document.addEventListener("mousedown", () => (isDrawing = true));
-document.addEventListener("mouseup", () => (isDrawing = false));
+container.addEventListener("mousedown", () => (isDrawing = true));
+container.addEventListener("mouseup", () => (isDrawing = false));
+container.addEventListener("mouseleave", () => (isDrawing = false));
+
 
 resetBtn.addEventListener("click", resetGrid);
 clearBtn.addEventListener("click", () => {
-    createGrid(16);
-})
+  document.querySelectorAll(".box").forEach((box) => {
+    box.style.backgroundColor = "#000";
+  });
+});
 createGrid(16);
 
 function createGrid(size) {
@@ -27,7 +31,7 @@ function createGrid(size) {
     box.classList.add("box");
     box.addEventListener("mouseover", () => {
       if (isDrawing) {
-        box.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}`;
+        box.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255})`;
       }
     });
     container.appendChild(box);
