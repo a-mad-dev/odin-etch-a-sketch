@@ -27,7 +27,7 @@ function createGrid(size) {
     box.classList.add("box");
     box.addEventListener("mouseover", () => {
       if (isDrawing) {
-        box.style.backgroundColor = "white";
+        box.style.backgroundColor = `rgb(${Math.random() * 255}, ${Math.random() * 255}, ${Math.random() * 255}`;
       }
     });
     container.appendChild(box);
